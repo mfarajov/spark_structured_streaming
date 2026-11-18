@@ -1,4 +1,4 @@
-# Week-10 Homework: Spark Structured Streaming: File Source → Console Sink
+# Spark Structured Streaming: File Source → Console Sink
 
 
 ### Starting Docker Desktop
