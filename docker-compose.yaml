@@ -1,0 +1,55 @@
+services:
+
+  spark:
+    container_name: spark_streaming
+    image: spark-streaming:4.1.4
+    build:
+      context: ./image
+      dockerfile: Dockerfile
+
+    ports:
+      - "8888:8888"
+      - "4041:4040"
+
+    volumes:
+      - ./spark/examples:/opt/examples
+
+    environment:
+      - PYSPARK_PYTHON=python3
+
+    command: ["tail", "-f", "/dev/null"]
+
+    depends_on:
+      - rustfs
+
+    networks:
+      - streaming_network
+
+  rustfs:
+    container_name: rustfs_streaming
+    image: rustfs/rustfs:latest
+
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+
+    environment:
+      - RUSTFS_ACCESS_KEY=dataops
+      - RUSTFS_SECRET_KEY=Ankara06
+      - RUSTFS_VOLUMES=/data
+      - RUSTFS_ADDRESS=:9000
+
+    volumes:
+      - rustfs_streaming_data:/data
+
+    networks:
+      streaming_network:
+        aliases:
+          - rustfs
+
+volumes:
+  rustfs_streaming_data:
+
+networks:
+  streaming_network:
+    driver: bridge
