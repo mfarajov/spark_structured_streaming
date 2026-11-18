@@ -34,8 +34,8 @@ services:
       - "9001:9001"
 
     environment:
-      - RUSTFS_ACCESS_KEY=dataops
-      - RUSTFS_SECRET_KEY=Ankara06
+      - RUSTFS_ACCESS_KEY="your_username"
+      - RUSTFS_SECRET_KEY="your_password"
       - RUSTFS_VOLUMES=/data
       - RUSTFS_ADDRESS=:9000
 
