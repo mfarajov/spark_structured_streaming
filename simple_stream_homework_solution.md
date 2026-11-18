@@ -399,14 +399,3 @@ python data_generator.py
 ![verify_files_rustfs](snapshots/verify_files_rustfs.png)
 
 
-
-```bash
-
-cd .. 
-
-zip -r spark_structured_streaming_Murad_Farajov.zip spark_structured_streaming \
--x "spark_structured_streaming/.venv/*"
-
-```
-
-![create_zip](snapshots/create_zip.png)
