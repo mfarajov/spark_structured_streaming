@@ -7,8 +7,8 @@ import boto3
 
 # RustFS connection
 S3_ENDPOINT = "http://localhost:9000"
-ACCESS_KEY = "dataops"
-SECRET_KEY = "Ankara06"
+ACCESS_KEY = "your_username"
+SECRET_KEY = "your_password"
 
 BUCKET_NAME = "datasets"
 PREFIX = "iot-temp-input/"
